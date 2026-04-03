@@ -55,19 +55,19 @@ img{display:block;max-width:100%} a{color:inherit;text-decoration:none} ul{list-
 .fi.d1{transition-delay:.1s}.fi.d2{transition-delay:.2s}.fi.d3{transition-delay:.3s}
 /* HEADER */
 #hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(12,12,12,.92);backdrop-filter:blur(10px);height:var(--hh);transition:height .3s,box-shadow .3s,background .3s;border-bottom:1px solid rgba(255,255,255,.07)}
-#hdr.sc{height:72px;box-shadow:var(--smd);background:rgba(8,8,8,.97)}
+#hdr.sc{height:68px;box-shadow:var(--smd);background:rgba(8,8,8,.97)}
 .hi{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{display:flex;align-items:center;gap:10px;color:#fff;flex-shrink:0}
-.limg{height:56px;width:auto;object-fit:contain;transition:height .3s}
+.limg{height:58px;width:auto;object-fit:contain;transition:height .3s}
 #hdr.sc .limg{height:46px}
-.lfb{font-family:var(--fh);font-size:1.35rem;font-weight:900;color:#fff;display:none;line-height:1.05}
-.lsub{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-top:4px}
+.lfb{font-family:var(--fh);font-size:1.1rem;font-weight:900;color:#fff;display:none}
+.lsub{font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block}
 .hnav{display:flex;align-items:center;gap:4px}
 .nl{color:rgba(255,255,255,.8);font-size:.98rem;font-weight:600;padding:10px 12px;border-radius:4px;transition:color .2s}
 .nl:hover{color:#fff}
 @media(max-width:760px){.nl{display:none}}
 .hctas{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.hctas .btn{padding:10px 15px;font-size:.92rem}
+.hctas .btn{padding:11px 16px;font-size:.9rem}
 @media(max-width:480px){.hctas .btn-outline{display:none}}
 /* HERO */
 #hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding-top:var(--hh)}
@@ -136,6 +136,38 @@ img{display:block;max-width:100%} a{color:inherit;text-decoration:none} ul{list-
 .gitem.s2{grid-column:span 2}.gitem.sr2{grid-row:span 2}
 @media(max-width:900px){.ggrid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.ggrid{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}.gitem.s2,.gitem.sr2{grid-column:span 1;grid-row:span 1}}
+/* CATERING */
+#catering{padding:96px 0;background:#fff}
+.cat-notice{display:inline-flex;align-items:center;gap:10px;background:rgba(178,34,34,.07);border:1.5px solid rgba(178,34,34,.2);border-radius:8px;padding:12px 20px;font-size:.9rem;font-weight:600;color:var(--red);margin-bottom:40px}
+.cat-notice svg{width:18px;height:18px;fill:var(--red);flex-shrink:0}
+.cat-pan-key{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.cat-pan-badge{display:flex;align-items:center;gap:10px;background:var(--g100);border-radius:8px;padding:12px 18px;font-size:.9rem;font-weight:600}
+.cat-pan-badge svg{width:18px;height:18px;fill:var(--red)}
+.cat-section{margin-bottom:52px}
+.cat-section-title{font-family:var(--fh);font-size:1.4rem;font-weight:700;color:var(--red);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--g200);display:flex;align-items:center;gap:10px}
+.cat-section-title svg{width:20px;height:20px;fill:var(--red)}
+.cat-table{width:100%;border-collapse:collapse;font-size:.93rem}
+.cat-table th{text-align:left;padding:10px 14px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g600);background:var(--g100);border-bottom:2px solid var(--g200)}
+.cat-table th:not(:first-child){text-align:right}
+.cat-table td{padding:12px 14px;border-bottom:1px solid var(--g200);color:var(--charcoal);vertical-align:top}
+.cat-table td:not(:first-child){text-align:right;font-family:var(--fh);font-weight:700;color:var(--red);white-space:nowrap}
+.cat-table tr:last-child td{border-bottom:none}
+.cat-table tr:hover td{background:rgba(0,0,0,.02)}
+.cat-item-name{font-weight:700;color:var(--charcoal)}
+.cat-item-note{font-size:.79rem;color:var(--g400);margin-top:3px;font-weight:400}
+.cat-badge-pop{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--gold);color:var(--charcoal);padding:2px 7px;border-radius:100px;margin-left:6px;vertical-align:middle}
+.cat-badge-try{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--red);color:#fff;padding:2px 7px;border-radius:100px;margin-left:6px;vertical-align:middle}
+.cat-two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:680px){.cat-two-col{grid-template-columns:1fr}}
+.cat-pound-item{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--g200)}
+.cat-pound-item:last-child{border-bottom:none}
+.cat-pound-price{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--red);white-space:nowrap;margin-left:12px;flex-shrink:0}
+.cat-extras{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.cat-extra-item{background:var(--g100);border-radius:8px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.cat-extra-name{font-weight:600;font-size:.9rem}
+.cat-extra-price{font-family:var(--fh);font-weight:700;color:var(--red);white-space:nowrap}
+.cat-cta{text-align:center;margin-top:52px;padding:40px;background:var(--g100);border-radius:12px;border:1.5px solid var(--g200)}
+.cat-cta p{color:var(--g600);margin-bottom:20px;font-size:1rem}
 /* LIGHTBOX */
 .lbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:16px}
 .lbox.open{display:flex}
@@ -201,7 +233,7 @@ img{display:block;max-width:100%} a{color:inherit;text-decoration:none} ul{list-
 .socgrid{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:36px}
 .socbtn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;font-weight:600;font-size:.93rem;transition:transform .2s,box-shadow .2s}
 .socbtn:hover{transform:translateY(-2px);box-shadow:var(--smd)}
-.socbtn svg{width:20px;height:20px;flex-shrink:0}
+.socbtn svg{width:19px;height:19px}
 .sfb{background:#1877f2;color:#fff}.sig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}
 .syl{background:#d32323;color:#fff}.sta{background:#34e0a1;color:#1a1a1a}
 .rjwrap{display:flex;justify-content:center;margin-top:24px}
@@ -225,7 +257,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
 .flinks li{margin-bottom:8px}.flinks a{font-size:.88rem;transition:color .2s}.flinks a:hover{color:#fff}
 .fsoc{display:flex;gap:10px;margin-top:16px}
 .fsoc a{width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .2s}
-.fsoc a:hover{background:rgba(255,255,255,.18)}.fsoc svg{width:18px;height:18px;fill:rgba(255,255,255,.75)}
+.fsoc a:hover{background:rgba(255,255,255,.18)}.fsoc svg{width:17px;height:17px;fill:rgba(255,255,255,.75)}
 .fbot{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem}
 .fbot a{color:var(--gold)}.fbot a:hover{opacity:.8}
 /* FLOAT BTNS */
@@ -266,6 +298,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
       <nav class="hnav" aria-label="Main navigation">
         <a href="#about" class="nl">About</a>
         <a href="#menu" class="nl">Menu</a>
+        <a href="#catering" class="nl">Catering</a>
         <a href="#gallery" class="nl">Gallery</a>
         <a href="#reviews" class="nl">Reviews</a>
         <a href="#location" class="nl">Location</a>
@@ -476,6 +509,123 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
     </div>
   </div>
 </section>
+<!-- CATERING -->
+<section id="catering" aria-labelledby="cat-h">
+  <div class="container">
+    <div class="shdr c fi">
+      <p class="eyebrow">Eagle Catering</p>
+      <h2 class="stitle" id="cat-h">Catering for Every Occasion</h2>
+      <p class="sdesc">Office parties, family gatherings, and every celebration in between &mdash; we've got you covered.</p>
+    </div>
+
+    <div class="fi" style="display:flex;flex-direction:column;align-items:flex-start;">
+      <div class="cat-notice">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        Please allow 2 days advance notice for all catering orders. Call (630) 963-9161 to place your order.
+      </div>
+    </div>
+
+    <div class="cat-pan-key fi">
+      <div class="cat-pan-badge"><svg viewBox="0 0 24 24"><path d="M20 7H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9 3h2v2h-2v-2zm0 4h2v2h-2v-2zm-4-4h2v2H7v-2zm0 4h2v2H7v-2zm-1 4H5v-2h1v2zm0-4H5v-2h1v2zm0-4H5V9h1v1zm10 8h-7v-2h7v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v1zm3 8h-1v-2h1v2zm0-4h-1v-2h1v2zm0-4h-1V9h1v1z"/></svg><strong>Half Pan</strong>&nbsp;&mdash;&nbsp;Serves 8&ndash;10 people</div>
+      <div class="cat-pan-badge"><svg viewBox="0 0 24 24"><path d="M20 7H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9 3h2v2h-2v-2zm0 4h2v2h-2v-2zm-4-4h2v2H7v-2zm0 4h2v2H7v-2zm-1 4H5v-2h1v2zm0-4H5v-2h1v2zm0-4H5V9h1v1zm10 8h-7v-2h7v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v1zm3 8h-1v-2h1v2zm0-4h-1v-2h1v2zm0-4h-1V9h1v1z"/></svg><strong>Full Pan</strong>&nbsp;&mdash;&nbsp;Serves 16&ndash;20 people</div>
+    </div>
+
+    <!-- Fresh Salads -->
+    <div class="cat-section fi">
+      <div class="cat-section-title"><svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8.42-15.03-8.42-15.03 0h15.03zM1.02 17h15v2h-15z"/></svg>Fresh Salads</div>
+      <table class="cat-table">
+        <thead><tr><th>Item</th><th>Half Pan</th><th>Full Pan</th></tr></thead>
+        <tbody>
+          <tr><td><div class="cat-item-name">Greek Salad</div></td><td>$35</td><td>$60</td></tr>
+          <tr><td><div class="cat-item-name">Garden Salad</div></td><td>$25</td><td>$40</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- By the Pound + Chicken & Kabobs -->
+    <div class="cat-section fi">
+      <div class="cat-two-col">
+        <div>
+          <div class="cat-section-title" style="font-size:1.2rem;"><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>By the Pound</div>
+          <div class="cat-pound-item">
+            <div><div class="cat-item-name">Gyros</div><div class="cat-item-note">Includes gyros sauce, onions &amp; tomatoes<br>Feeds 3&ndash;4 per lb.</div></div>
+            <div class="cat-pound-price">$19.95<span style="font-size:.75rem;font-weight:400;font-family:var(--fb)">/lb.</span></div>
+          </div>
+          <div class="cat-pound-item">
+            <div><div class="cat-item-name">Italian Beef <span style="font-size:.8rem;color:var(--g400)">(cold)</span></div><div class="cat-item-note">Includes sweet or sport peppers<br>Feeds 3&ndash;4 per lb.</div></div>
+            <div class="cat-pound-price">$18.95<span style="font-size:.75rem;font-weight:400;font-family:var(--fb)">/lb.</span></div>
+          </div>
+          <div class="cat-pound-item">
+            <div><div class="cat-item-name">Italian Sausage</div><div class="cat-item-note">Includes sweet or sport peppers<br>Feeds 3&ndash;4 per lb.</div></div>
+            <div class="cat-pound-price">$11.95<span style="font-size:.75rem;font-weight:400;font-family:var(--fb)">/lb.</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="cat-section-title" style="font-size:1.2rem;"><svg viewBox="0 0 24 24"><path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>Chicken &amp; Kabobs</div>
+          <div class="cat-pound-item">
+            <div><div class="cat-item-name">Per Skewer <span class="cat-badge-try">Must Try!</span></div></div>
+            <div class="cat-pound-price">$5.95</div>
+          </div>
+          <div class="cat-pound-item">
+            <div><div class="cat-item-name">Per Breast</div></div>
+            <div class="cat-pound-price">$5.95</div>
+          </div>
+          <div class="cat-pound-item">
+            <div><div class="cat-item-name">Per Chicken Parmesan</div></div>
+            <div class="cat-pound-price">$6.95</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pastas & Sausage -->
+    <div class="cat-section fi">
+      <div class="cat-section-title"><svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8.42-15.03-8.42-15.03 0h15.03zM1.02 17h15v2h-15z"/></svg>Pastas &amp; Sausage</div>
+      <table class="cat-table">
+        <thead><tr><th>Item</th><th>Half Pan</th><th>Full Pan</th></tr></thead>
+        <tbody>
+          <tr><td><div class="cat-item-name">Mostaccioli</div></td><td>$35</td><td>$65</td></tr>
+          <tr><td><div class="cat-item-name">Add Baked Cheese to Mostaccioli</div></td><td>+$5</td><td>+$10</td></tr>
+          <tr><td><div class="cat-item-name">Spaghetti</div></td><td>$35</td><td>$65</td></tr>
+          <tr><td><div class="cat-item-name">Sausage &amp; Peppers <span class="cat-item-note" style="display:inline;">(feeds 30)</span></div></td><td>&mdash;</td><td>$85</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Side Orders -->
+    <div class="cat-section fi">
+      <div class="cat-section-title"><svg viewBox="0 0 24 24"><path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>Side Orders</div>
+      <table class="cat-table">
+        <thead><tr><th>Item</th><th>Half Pan</th><th>Full Pan</th></tr></thead>
+        <tbody>
+          <tr><td><div class="cat-item-name">Chicken Tenders <span class="cat-item-note" style="display:inline;">(60&ndash;80 pcs)</span></div></td><td>&mdash;</td><td>$90</td></tr>
+          <tr><td><div class="cat-item-name">Rice Pilaf</div></td><td>$30</td><td>$50</td></tr>
+          <tr><td><div class="cat-item-name">Oven Brown Potatoes <span class="cat-badge-pop">Most Popular</span><div class="cat-item-note">Greek Style</div></div></td><td>$35</td><td>$65</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Extras -->
+    <div class="cat-section fi">
+      <div class="cat-section-title"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>Extras</div>
+      <div class="cat-extras">
+        <div class="cat-extra-item"><span class="cat-extra-name">Pita Bread</span><span class="cat-extra-price">$0.70 ea.</span></div>
+        <div class="cat-extra-item"><span class="cat-extra-name">Loaf of Italian Bread</span><span class="cat-extra-price">$3.99</span></div>
+        <div class="cat-extra-item"><span class="cat-extra-name">Sweet Peppers <span style="font-size:.78rem;color:var(--g400)">1/2 pint</span></span><span class="cat-extra-price">$3.50</span></div>
+        <div class="cat-extra-item"><span class="cat-extra-name">Giardiniera <span style="font-size:.78rem;color:var(--g400)">1/2 pint</span></span><span class="cat-extra-price">$5.00</span></div>
+        <div class="cat-extra-item"><span class="cat-extra-name">Tzatziki Sauce <span style="font-size:.78rem;color:var(--g400)">12 oz. cup</span></span><span class="cat-extra-price">$4.00</span></div>
+      </div>
+    </div>
+
+    <div class="cat-cta fi">
+      <p><strong>Ready to book catering for your next event?</strong><br>Please allow 2 days advance notice. We accommodate office parties, family gatherings, and all group events.</p>
+      <a href="tel:+16309639161" class="btn btn-primary" style="font-size:1rem;">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Call to Order Catering
+      </a>
+    </div>
+  </div>
+</section>
 <!-- GALLERY -->
 <section id="gallery" aria-labelledby="gallery-h">
   <div class="container">
@@ -544,7 +694,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
     </div>
     <div class="rcta-row fi">
       <a href="https://search.google.com/local/writereview?placeid=ChIJmRdzJDlODogRTlnAx9LemMw" target="_blank" rel="noopener noreferrer" class="btn btn-google"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Write a Google Review</a>
-      <a href="https://www.yelp.com/biz/eagle-restaurant-downers-grove" target="_blank" rel="noopener noreferrer" class="btn btn-yelp"><svg viewBox="-6 0 48 48" fill="currentColor" aria-hidden="true"><path d="M306.916951,783.108522 C306.149772,784.358008 305.82659,788.292467 306.090874,790.903939 C306.184506,791.76643 306.338546,792.484922 306.560545,792.913918 C306.867115,793.506411 307.383601,793.860408 307.972577,793.879907 C308.350126,793.900907 308.584206,793.834908 315.676081,791.517432 C315.676081,791.517432 318.827857,790.497443 318.841449,790.489943 C319.62675,790.288945 320.155318,789.553953 320.208175,788.614963 C320.258012,787.654973 319.768709,786.804482 318.963775,786.498486 C318.963775,786.498486 316.743788,785.577496 316.737748,785.577496 C309.117305,782.384029 308.776001,782.258031 308.390901,782.253531 C307.803435,782.231031 307.277888,782.531028 306.916951,783.108522 Z M323.965238,806.903819 C324.089074,806.542323 324.102665,806.291825 324.123808,798.721406 C324.123808,798.721406 324.141931,795.377941 324.143441,795.341942 C324.193277,794.52445 323.67377,793.778958 322.81598,793.441462 C321.935536,793.097966 320.988644,793.310963 320.457055,793.985956 C320.457055,793.985956 318.903065,795.860936 318.897024,795.860936 C313.555465,802.231369 313.336487,802.525365 313.2051,802.903361 C313.12657,803.128359 313.093346,803.362357 313.122039,803.597854 C313.153753,803.93385 313.301752,804.269847 313.552445,804.578844 C314.789294,806.075828 320.72738,808.295804 322.622675,807.967308 C323.28263,807.844309 323.759851,807.467813 323.965238,806.903819 Z M336.006625,804.269547 C337.796206,803.545055 341.703079,798.497608 341.977935,796.555129 C342.071567,795.880136 341.86467,795.296642 341.405571,794.926146 C341.106553,794.696649 340.873983,794.60665 333.788149,792.244175 C333.788149,792.244175 330.680168,791.200186 330.639393,791.180686 C329.888826,790.885189 329.028015,791.156686 328.45112,791.884179 C327.853083,792.626671 327.759451,793.60316 328.238183,794.345652 L329.490134,796.41413 C333.699047,803.357557 334.019208,803.848051 334.322758,804.088049 C334.790918,804.463045 335.385935,804.524544 336.006625,804.269547 Z M332.347423,786.397837 C340.401292,784.416358 340.712392,784.309859 341.031043,784.098361 C341.517326,783.766865 341.761977,783.207371 341.721202,782.526378 C341.721202,782.503878 341.724222,782.482878 341.721202,782.457379 C341.514305,780.4504 338.046898,775.221456 336.340378,774.373965 C335.7363,774.078468 335.129202,774.099467 334.630837,774.439964 C334.319737,774.646962 334.088677,774.957458 329.777071,780.948395 C329.777071,780.948395 327.82741,783.646866 327.804757,783.672366 C327.289781,784.305359 327.28525,785.217349 327.785124,785.997341 C328.304631,786.804332 329.183565,787.197328 329.988499,786.970831 C329.988499,786.970831 329.955274,787.02783 329.946213,787.03983 C330.343394,786.885332 331.054696,786.709833 332.347423,786.397837 Z M324.258669,779.640709 C324.121241,776.399243 323.162267,761.957396 323.049003,761.286904 C322.882881,760.68241 322.419251,760.248915 321.747215,760.076416 C319.69335,759.557422 311.835806,761.796898 310.378468,763.323882 C309.911818,763.818877 309.736636,764.43087 309.877084,764.969364 C310.105123,765.449359 319.844369,781.013194 319.844369,781.013194 C321.285095,783.384669 322.458516,783.017173 322.842106,782.895674 C323.224185,782.774175 324.391566,782.406679 324.258669,779.640709 Z" transform="translate(-306 -760)"/></svg>Review on Yelp</a>
+      <a href="https://www.yelp.com/biz/eagle-restaurant-downers-grove" target="_blank" rel="noopener noreferrer" class="btn btn-yelp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Review on Yelp</a>
     </div>
   </div>
 </section>
@@ -580,7 +730,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
         </div>
       </div>
       <div class="mwrap fi d2">
-        <iframe src="https://www.google.com/maps?q=406+Maple+Ave,+Downers+Grove,+IL+60515&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eagle Restaurant location map"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2975.0!2d-88.01200!3d41.81030!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e4e314c491a8b%3A0xcc9eda52c7d959ce!2sEagle%20Restaurant!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eagle Restaurant location map"></iframe>
       </div>
     </div>
   </div>
@@ -606,8 +756,8 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
     <div class="socgrid fi">
       <a href="https://www.facebook.com/EagleRestaurant/" target="_blank" rel="noopener noreferrer" class="socbtn sfb" aria-label="Eagle Restaurant on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
       <a href="https://www.instagram.com/eagle_downers_grove" target="_blank" rel="noopener noreferrer" class="socbtn sig" aria-label="Eagle Restaurant on Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram</a>
-      <a href="https://www.yelp.com/biz/eagle-restaurant-downers-grove" target="_blank" rel="noopener noreferrer" class="socbtn syl" aria-label="Eagle Restaurant on Yelp"><svg viewBox="-6 0 48 48" fill="currentColor" aria-hidden="true"><path d="M306.916951,783.108522 C306.149772,784.358008 305.82659,788.292467 306.090874,790.903939 C306.184506,791.76643 306.338546,792.484922 306.560545,792.913918 C306.867115,793.506411 307.383601,793.860408 307.972577,793.879907 C308.350126,793.900907 308.584206,793.834908 315.676081,791.517432 C315.676081,791.517432 318.827857,790.497443 318.841449,790.489943 C319.62675,790.288945 320.155318,789.553953 320.208175,788.614963 C320.258012,787.654973 319.768709,786.804482 318.963775,786.498486 C318.963775,786.498486 316.743788,785.577496 316.737748,785.577496 C309.117305,782.384029 308.776001,782.258031 308.390901,782.253531 C307.803435,782.231031 307.277888,782.531028 306.916951,783.108522 Z M323.965238,806.903819 C324.089074,806.542323 324.102665,806.291825 324.123808,798.721406 C324.123808,798.721406 324.141931,795.377941 324.143441,795.341942 C324.193277,794.52445 323.67377,793.778958 322.81598,793.441462 C321.935536,793.097966 320.988644,793.310963 320.457055,793.985956 C320.457055,793.985956 318.903065,795.860936 318.897024,795.860936 C313.555465,802.231369 313.336487,802.525365 313.2051,802.903361 C313.12657,803.128359 313.093346,803.362357 313.122039,803.597854 C313.153753,803.93385 313.301752,804.269847 313.552445,804.578844 C314.789294,806.075828 320.72738,808.295804 322.622675,807.967308 C323.28263,807.844309 323.759851,807.467813 323.965238,806.903819 Z M336.006625,804.269547 C337.796206,803.545055 341.703079,798.497608 341.977935,796.555129 C342.071567,795.880136 341.86467,795.296642 341.405571,794.926146 C341.106553,794.696649 340.873983,794.60665 333.788149,792.244175 C333.788149,792.244175 330.680168,791.200186 330.639393,791.180686 C329.888826,790.885189 329.028015,791.156686 328.45112,791.884179 C327.853083,792.626671 327.759451,793.60316 328.238183,794.345652 L329.490134,796.41413 C333.699047,803.357557 334.019208,803.848051 334.322758,804.088049 C334.790918,804.463045 335.385935,804.524544 336.006625,804.269547 Z M332.347423,786.397837 C340.401292,784.416358 340.712392,784.309859 341.031043,784.098361 C341.517326,783.766865 341.761977,783.207371 341.721202,782.526378 C341.721202,782.503878 341.724222,782.482878 341.721202,782.457379 C341.514305,780.4504 338.046898,775.221456 336.340378,774.373965 C335.7363,774.078468 335.129202,774.099467 334.630837,774.439964 C334.319737,774.646962 334.088677,774.957458 329.777071,780.948395 C329.777071,780.948395 327.82741,783.646866 327.804757,783.672366 C327.289781,784.305359 327.28525,785.217349 327.785124,785.997341 C328.304631,786.804332 329.183565,787.197328 329.988499,786.970831 C329.988499,786.970831 329.955274,787.02783 329.946213,787.03983 C330.343394,786.885332 331.054696,786.709833 332.347423,786.397837 Z M324.258669,779.640709 C324.121241,776.399243 323.162267,761.957396 323.049003,761.286904 C322.882881,760.68241 322.419251,760.248915 321.747215,760.076416 C319.69335,759.557422 311.835806,761.796898 310.378468,763.323882 C309.911818,763.818877 309.736636,764.43087 309.877084,764.969364 C310.105123,765.449359 319.844369,781.013194 319.844369,781.013194 C321.285095,783.384669 322.458516,783.017173 322.842106,782.895674 C323.224185,782.774175 324.391566,782.406679 324.258669,779.640709 Z" transform="translate(-306 -760)"/></svg>Yelp</a>
-      <a href="https://www.tripadvisor.in/Restaurant_Review-g35904-d427213-Reviews-Eagle_Restaurant-Downers_Grove_DuPage_County_Illinois.html" target="_blank" rel="noopener noreferrer" class="socbtn sta" aria-label="Eagle Restaurant on TripAdvisor"><svg viewBox="0 -96 512.2 512.2" fill="currentColor" aria-hidden="true"><path d="M128.2 127.9C92.7 127.9 64 156.6 64 192c0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1.1-35.4-28.6-64.1-64-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S174 166.7 174 192s-20.5 45.9-45.8 45.9z"/><circle cx="128.4" cy="191.9" r="31.9"/><path d="M384.2 127.9c-35.4 0-64.1 28.7-64.1 64.1 0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1 0-35.4-28.7-64.1-64.1-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S430 166.7 430 192s-20.5 45.9-45.8 45.9z"/><circle cx="384.4" cy="191.9" r="31.9"/><path d="M474.4 101.2l37.7-37.4h-76.4C392.9 29 321.8 0 255.9 0c-66 0-136.5 29-179.3 63.8H0l37.7 37.4C14.4 124.4 0 156.5 0 192c0 70.8 57.4 128.2 128.2 128.2 32.5 0 62.2-12.1 84.8-32.1l43.4 31.9 42.9-31.2-.5-1.2c22.7 20.2 52.5 32.5 85.3 32.5 70.8 0 128.2-57.4 128.2-128.2-.1-35.4-14.6-67.5-37.9-90.7zM368 64.8c-60.7 7.6-108.3 57.6-111.9 119.5-3.7-62-51.4-112.1-112.3-119.5 30.6-22 69.6-32.8 112.1-32.8S337.4 42.8 368 64.8zM128.2 288.2C75 288.2 32 245.1 32 192s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2zm256 0c-53.1 0-96.2-43.1-96.2-96.2s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2z"/></svg>TripAdvisor</a>
+      <a href="https://www.yelp.com/biz/eagle-restaurant-downers-grove" target="_blank" rel="noopener noreferrer" class="socbtn syl" aria-label="Eagle Restaurant on Yelp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>Yelp</a>
+      <a href="https://www.tripadvisor.in/Restaurant_Review-g35904-d427213-Reviews-Eagle_Restaurant-Downers_Grove_DuPage_County_Illinois.html" target="_blank" rel="noopener noreferrer" class="socbtn sta" aria-label="Eagle Restaurant on TripAdvisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg>TripAdvisor</a>
     </div>
     <div class="rjwrap fi">
       <a href="https://www.restaurantji.com/il/downers-grove/eagle-restaurant-/" target="_blank" rel="noopener noreferrer" class="rjbadge" aria-label="Eagle Restaurant is Recommended on Restaurantji">
@@ -641,8 +791,8 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
         <div class="fsoc">
           <a href="https://www.facebook.com/EagleRestaurant/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
           <a href="https://www.instagram.com/eagle_downers_grove" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-          <a href="https://www.yelp.com/biz/eagle-restaurant-downers-grove" target="_blank" rel="noopener noreferrer" aria-label="Yelp"><svg viewBox="-6 0 48 48" fill="currentColor" aria-hidden="true"><path d="M306.916951,783.108522 C306.149772,784.358008 305.82659,788.292467 306.090874,790.903939 C306.184506,791.76643 306.338546,792.484922 306.560545,792.913918 C306.867115,793.506411 307.383601,793.860408 307.972577,793.879907 C308.350126,793.900907 308.584206,793.834908 315.676081,791.517432 C315.676081,791.517432 318.827857,790.497443 318.841449,790.489943 C319.62675,790.288945 320.155318,789.553953 320.208175,788.614963 C320.258012,787.654973 319.768709,786.804482 318.963775,786.498486 C318.963775,786.498486 316.743788,785.577496 316.737748,785.577496 C309.117305,782.384029 308.776001,782.258031 308.390901,782.253531 C307.803435,782.231031 307.277888,782.531028 306.916951,783.108522 Z M323.965238,806.903819 C324.089074,806.542323 324.102665,806.291825 324.123808,798.721406 C324.123808,798.721406 324.141931,795.377941 324.143441,795.341942 C324.193277,794.52445 323.67377,793.778958 322.81598,793.441462 C321.935536,793.097966 320.988644,793.310963 320.457055,793.985956 C320.457055,793.985956 318.903065,795.860936 318.897024,795.860936 C313.555465,802.231369 313.336487,802.525365 313.2051,802.903361 C313.12657,803.128359 313.093346,803.362357 313.122039,803.597854 C313.153753,803.93385 313.301752,804.269847 313.552445,804.578844 C314.789294,806.075828 320.72738,808.295804 322.622675,807.967308 C323.28263,807.844309 323.759851,807.467813 323.965238,806.903819 Z M336.006625,804.269547 C337.796206,803.545055 341.703079,798.497608 341.977935,796.555129 C342.071567,795.880136 341.86467,795.296642 341.405571,794.926146 C341.106553,794.696649 340.873983,794.60665 333.788149,792.244175 C333.788149,792.244175 330.680168,791.200186 330.639393,791.180686 C329.888826,790.885189 329.028015,791.156686 328.45112,791.884179 C327.853083,792.626671 327.759451,793.60316 328.238183,794.345652 L329.490134,796.41413 C333.699047,803.357557 334.019208,803.848051 334.322758,804.088049 C334.790918,804.463045 335.385935,804.524544 336.006625,804.269547 Z M332.347423,786.397837 C340.401292,784.416358 340.712392,784.309859 341.031043,784.098361 C341.517326,783.766865 341.761977,783.207371 341.721202,782.526378 C341.721202,782.503878 341.724222,782.482878 341.721202,782.457379 C341.514305,780.4504 338.046898,775.221456 336.340378,774.373965 C335.7363,774.078468 335.129202,774.099467 334.630837,774.439964 C334.319737,774.646962 334.088677,774.957458 329.777071,780.948395 C329.777071,780.948395 327.82741,783.646866 327.804757,783.672366 C327.289781,784.305359 327.28525,785.217349 327.785124,785.997341 C328.304631,786.804332 329.183565,787.197328 329.988499,786.970831 C329.988499,786.970831 329.955274,787.02783 329.946213,787.03983 C330.343394,786.885332 331.054696,786.709833 332.347423,786.397837 Z M324.258669,779.640709 C324.121241,776.399243 323.162267,761.957396 323.049003,761.286904 C322.882881,760.68241 322.419251,760.248915 321.747215,760.076416 C319.69335,759.557422 311.835806,761.796898 310.378468,763.323882 C309.911818,763.818877 309.736636,764.43087 309.877084,764.969364 C310.105123,765.449359 319.844369,781.013194 319.844369,781.013194 C321.285095,783.384669 322.458516,783.017173 322.842106,782.895674 C323.224185,782.774175 324.391566,782.406679 324.258669,779.640709 Z" transform="translate(-306 -760)"/></svg></a>
-          <a href="https://www.tripadvisor.in/Restaurant_Review-g35904-d427213-Reviews-Eagle_Restaurant-Downers_Grove_DuPage_County_Illinois.html" target="_blank" rel="noopener noreferrer" aria-label="TripAdvisor"><svg viewBox="0 -96 512.2 512.2" fill="currentColor" aria-hidden="true"><path d="M128.2 127.9C92.7 127.9 64 156.6 64 192c0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1.1-35.4-28.6-64.1-64-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S174 166.7 174 192s-20.5 45.9-45.8 45.9z"/><circle cx="128.4" cy="191.9" r="31.9"/><path d="M384.2 127.9c-35.4 0-64.1 28.7-64.1 64.1 0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1 0-35.4-28.7-64.1-64.1-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S430 166.7 430 192s-20.5 45.9-45.8 45.9z"/><circle cx="384.4" cy="191.9" r="31.9"/><path d="M474.4 101.2l37.7-37.4h-76.4C392.9 29 321.8 0 255.9 0c-66 0-136.5 29-179.3 63.8H0l37.7 37.4C14.4 124.4 0 156.5 0 192c0 70.8 57.4 128.2 128.2 128.2 32.5 0 62.2-12.1 84.8-32.1l43.4 31.9 42.9-31.2-.5-1.2c22.7 20.2 52.5 32.5 85.3 32.5 70.8 0 128.2-57.4 128.2-128.2-.1-35.4-14.6-67.5-37.9-90.7zM368 64.8c-60.7 7.6-108.3 57.6-111.9 119.5-3.7-62-51.4-112.1-112.3-119.5 30.6-22 69.6-32.8 112.1-32.8S337.4 42.8 368 64.8zM128.2 288.2C75 288.2 32 245.1 32 192s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2zm256 0c-53.1 0-96.2-43.1-96.2-96.2s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2z"/></svg></a>
+          <a href="https://www.yelp.com/biz/eagle-restaurant-downers-grove" target="_blank" rel="noopener noreferrer" aria-label="Yelp"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></a>
+          <a href="https://www.tripadvisor.in/Restaurant_Review-g35904-d427213-Reviews-Eagle_Restaurant-Downers_Grove_DuPage_County_Illinois.html" target="_blank" rel="noopener noreferrer" aria-label="TripAdvisor"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg></a>
         </div>
       </div>
       <div>
@@ -650,6 +800,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
         <ul class="flinks">
           <li><a href="#about">Our Story</a></li>
           <li><a href="#menu">Full Menu</a></li>
+          <li><a href="#catering">Catering</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#amenities">Amenities</a></li>
