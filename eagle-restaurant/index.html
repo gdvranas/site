@@ -81,9 +81,9 @@ img{display:block;max-width:100%} a{color:inherit;text-decoration:none} ul{list-
   .ham-btn{display:flex}
 }
 /* Drawer */
-.mob-menu{display:none;position:fixed;inset:0;z-index:1999;background:rgba(0,0,0,0);transition:background .3s;pointer-events:none}
-.mob-menu.open{display:block;background:rgba(0,0,0,.6);pointer-events:all}
-.mob-drawer{position:absolute;top:0;right:0;width:min(320px,92vw);height:100%;background:var(--charcoal);transform:translateX(110%);transition:transform .32s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 32px rgba(0,0,0,.4);display:flex;flex-direction:column;overflow-y:auto}
+.mob-menu{position:fixed;inset:0;z-index:1999;background:rgba(0,0,0,0);transition:background .35s ease,visibility .35s ease;pointer-events:none;visibility:hidden}
+.mob-menu.open{display:block;background:rgba(0,0,0,.6);pointer-events:all;visibility:visible}
+.mob-drawer{position:absolute;top:0;right:0;width:min(340px,94vw);height:100%;background:var(--charcoal);transform:translateX(110%);transition:transform .45s cubic-bezier(0.34,1.42,0.64,1);box-shadow:-4px 0 40px rgba(0,0,0,.5);display:flex;flex-direction:column;overflow-y:auto}
 .mob-menu.open .mob-drawer{transform:translateX(0)}
 .mob-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
 .mob-drawer-logo{font-family:var(--fh);font-size:1.15rem;font-weight:900;color:#fff}
@@ -212,6 +212,37 @@ img{display:block;max-width:100%} a{color:inherit;text-decoration:none} ul{list-
 .cat-extra-price{font-family:var(--fh);font-weight:700;color:var(--red);white-space:nowrap}
 .cat-cta{text-align:center;margin-top:52px;padding:40px;background:var(--g100);border-radius:12px;border:1.5px solid var(--g200)}
 .cat-cta p{color:var(--g600);margin-bottom:20px;font-size:1rem}
+/* CATERING COLLAPSE */
+.cat-collapsible{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(0.34,1.2,0.64,1)}
+.cat-collapsible.expanded{max-height:2000px}
+.cat-view-all{text-align:center;margin-top:12px;margin-bottom:52px}
+.cat-view-all-btn{display:inline-flex;align-items:center;gap:8px;background:none;border:2px solid var(--g200);border-radius:100px;padding:11px 24px;font-family:var(--fb);font-size:.92rem;font-weight:700;color:var(--charcoal);cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+.cat-view-all-btn:hover{border-color:var(--red);color:var(--red);background:rgba(178,34,34,.04)}
+.cat-view-all-btn svg{width:18px;height:18px;fill:currentColor;transition:transform .35s cubic-bezier(0.34,1.4,0.64,1)}
+.cat-view-all-btn.expanded svg{transform:rotate(180deg)}
+/* MOBILE CAROUSELS */
+/* Reviews carousel */
+@media(max-width:768px){
+  .rgrid{display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:20px;padding-right:20px;scrollbar-width:none;margin:0 -20px;padding-left:20px}
+  .rgrid::-webkit-scrollbar{display:none}
+  .rcard{flex-shrink:0;width:82vw;scroll-snap-align:start}
+}
+/* Amenities carousel */
+@media(max-width:768px){
+  .amgrid{display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:14px;padding-bottom:20px;padding-right:20px;scrollbar-width:none;margin:0 -20px;padding-left:20px}
+  .amgrid::-webkit-scrollbar{display:none}
+  .amcard{flex-shrink:0;width:62vw;min-width:180px;scroll-snap-align:start}
+}
+/* Gallery carousel */
+@media(max-width:600px){
+  .ggrid{display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:8px;padding-bottom:12px;padding-right:20px;scrollbar-width:none;margin:0 -20px;padding-left:20px;grid-auto-rows:unset}
+  .ggrid::-webkit-scrollbar{display:none}
+  .gitem,.gitem.s2,.gitem.sr2{flex-shrink:0;width:78vw;height:220px;grid-column:unset;grid-row:unset;scroll-snap-align:start}
+}
+/* Scroll hint indicator */
+.carousel-hint{display:none;text-align:center;font-size:.75rem;color:var(--g400);margin-top:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.carousel-hint svg{width:14px;height:14px;fill:var(--g400);vertical-align:middle;margin:0 3px}
+@media(max-width:768px){.carousel-hint{display:block}}
 /* LIGHTBOX */
 .lbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:16px}
 .lbox.open{display:flex}
@@ -350,6 +381,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
         <a href="#catering" class="nl">Catering</a>
         <a href="#gallery" class="nl">Gallery</a>
         <a href="#reviews" class="nl">Reviews</a>
+        <a href="#amenities" class="nl">Amenities</a>
         <a href="#location" class="nl">Location</a>
       </nav>
       <div class="hctas">
@@ -387,14 +419,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
       <a href="#faq" class="mob-nl">FAQ</a>
     </nav>
     <div class="mob-ctas">
-      <a href="https://orderonlinemenu.com/EagleRestaurant" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.9 18 9 18h12v-2H9.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.44 5H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        Order Online
-      </a>
-      <a href="tel:+16309639161" class="btn btn-primary">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-        (630) 963-9161
-      </a>
       <a href="https://maps.google.com/?q=406+Maple+Ave+Downers+Grove+IL+60515" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         Get Directions
@@ -705,6 +729,8 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
       </div>
     </div>
 
+    <!-- Collapsible: Pastas, Sides, Extras -->
+    <div class="cat-collapsible" id="cat-more">
     <!-- Pastas & Sausage -->
     <div class="cat-section fi">
       <div class="cat-section-title"><svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8.42-15.03-8.42-15.03 0h15.03zM1.02 17h15v2h-15z"/></svg>Pastas &amp; Sausage</div>
@@ -742,6 +768,15 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
         <div class="cat-extra-item"><span class="cat-extra-name">Giardiniera <span style="font-size:.78rem;color:var(--g400)">1/2 pint</span></span><span class="cat-extra-price">$5.00</span></div>
         <div class="cat-extra-item"><span class="cat-extra-name">Tzatziki Sauce <span style="font-size:.78rem;color:var(--g400)">12 oz. cup</span></span><span class="cat-extra-price">$4.00</span></div>
       </div>
+    </div>
+
+    </div><!-- /cat-collapsible -->
+
+    <div class="cat-view-all">
+      <button class="cat-view-all-btn" id="cat-view-all-btn" aria-expanded="false" aria-controls="cat-more">
+        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        <span>View Full Catering Menu</span>
+      </button>
     </div>
 
     <div class="cat-cta fi">
@@ -791,6 +826,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
       <div class="gitem" data-idx="26"><img src="https://eaglerestauranttogo.com/assets/img/gallery/27.webp" alt="Eagle Restaurant" loading="lazy"/></div>
       <div class="gitem s2" data-idx="27"><img src="https://eaglerestauranttogo.com/assets/img/gallery/28.webp" alt="Eagle Restaurant" loading="lazy"/></div>
     </div>
+    <div class="carousel-hint" style="margin-top:16px;" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg> Swipe to browse photos</div>
   </div>
 </section>
 <!-- REVIEWS -->
@@ -819,6 +855,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
       <div class="rcard fi d2"><div class="rcstars" aria-label="5 stars"><svg class="sv" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="sv" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="sv" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="sv" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="sv" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div><p class="rq">"Best gyros and Italian beef in the suburbs, period. The owner John knows his regulars by name &mdash; that's the kind of place this is. Prices are fair, food comes fast, and everything tastes like it was made with care."</p><div class="rname">Dave K.</div><div class="rmeta">Downers Grove resident &middot; 8 years</div></div>
       <div class="rcard fi d3"><div class="rcstars" aria-label="4 stars"><svg class="sv" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="sv" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="sv" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="sv" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="sv" viewBox="0 0 24 24" style="opacity:.5"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div><p class="rq">"Fast service and the most welcoming atmosphere in DuPage County. Brought my kids for the first time last summer &mdash; they're already asking to go back. The homemade soup is unbeatable on a cold day!"</p><div class="rname">Sarah L.</div><div class="rmeta">Google Review &middot; Westmont, IL</div></div>
     </div>
+    <div class="carousel-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg> Swipe to see more reviews</div>
     <div class="rcta-row fi">
       <a href="https://search.google.com/local/writereview?placeid=ChIJmRdzJDlODogRTlnAx9LemMw" target="_blank" rel="noopener noreferrer" class="btn btn-google"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Write a Google Review</a>
       <a href="https://www.yelp.com/biz/eagle-restaurant-downers-grove" target="_blank" rel="noopener noreferrer" class="btn btn-yelp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Review on Yelp</a>
@@ -839,6 +876,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
       <div class="amcard fi d1"><div class="amicon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 7H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9 3h2v2h-2v-2zm0 4h2v2h-2v-2zm-4-4h2v2H7v-2zm0 4h2v2H7v-2zm-1 4H5v-2h1v2zm0-4H5v-2h1v2zm0-4H5V9h1v1zm10 8h-7v-2h7v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v1zm3 8h-1v-2h1v2zm0-4h-1v-2h1v2zm0-4h-1V9h1v1z"/></svg></div><div class="amname">Catering</div><div class="amdesc">Office &amp; family gatherings</div></div>
       <div class="amcard fi d2"><div class="amicon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 13.5V10H5v3.5c0 .83.67 1.5 1.5 1.5h1c.83 0 1.5-.67 1.5-1.5v-.5h2v.5c0 .83.67 1.5 1.5 1.5S14 13.83 14 13v-.5h2v.5c0 .83.67 1.5 1.5 1.5h1c.83 0 1.5-.67 1.5-1.5zM5 8l1-5h12l1 5H5z"/></svg></div><div class="amname">Wheelchair Accessible</div><div class="amdesc">Fully accessible entrance &amp; seating</div></div>
     </div>
+    <div class="carousel-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg> Swipe to see all amenities</div>
   </div>
 </section>
 <!-- LOCATION -->
@@ -966,7 +1004,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
 /* Header shrink */
 const hdr=document.getElementById('hdr');
 window.addEventListener('scroll',()=>hdr.classList.toggle('sc',scrollY>40),{passive:true});
-/* Hamburger menu */
+/* Hamburger menu — overlay uses visibility/opacity, drawer uses transform spring */
 const hamBtn=document.getElementById('ham-btn');
 const mobMenu=document.getElementById('mob-menu');
 const mobClose=document.getElementById('mob-close');
@@ -988,13 +1026,22 @@ function closeMob(){
   hamX.style.display='none';
   document.body.style.overflow='';
 }
-hamBtn.addEventListener('click',()=>{
-  if(mobMenu.classList.contains('open'))closeMob();else openMob();
-});
+hamBtn.addEventListener('click',()=>{if(mobMenu.classList.contains('open'))closeMob();else openMob()});
 mobClose.addEventListener('click',closeMob);
 mobMenu.addEventListener('click',e=>{if(e.target===mobMenu)closeMob()});
 document.querySelectorAll('.mob-nl').forEach(a=>a.addEventListener('click',()=>{closeMob()}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobMenu.classList.contains('open'))closeMob()});
+/* Catering View All */
+const catBtn=document.getElementById('cat-view-all-btn');
+const catMore=document.getElementById('cat-more');
+if(catBtn&&catMore){
+  catBtn.addEventListener('click',()=>{
+    const expanded=catMore.classList.toggle('expanded');
+    catBtn.classList.toggle('expanded',expanded);
+    catBtn.setAttribute('aria-expanded',expanded);
+    catBtn.querySelector('span').textContent=expanded?'Show Less':'View Full Catering Menu';
+  });
+}
 /* Intersection observer fade-in */
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
