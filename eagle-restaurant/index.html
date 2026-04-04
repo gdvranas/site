@@ -56,7 +56,7 @@ img{display:block;max-width:100%} a{color:inherit;text-decoration:none} ul{list-
 /* HEADER */
 #hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(12,12,12,.92);backdrop-filter:blur(10px);height:var(--hh);transition:height .3s,box-shadow .3s,background .3s;border-bottom:1px solid rgba(255,255,255,.07)}
 #hdr.sc{height:68px;box-shadow:var(--smd);background:rgba(8,8,8,.97)}
-.hi{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:var(--hh)}
+.hi{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:12px;color:#fff;flex-shrink:0}
 .limg{height:66px;width:auto;object-fit:contain;transition:height .3s;display:block}
 #hdr.sc .limg{height:52px}
@@ -65,11 +65,33 @@ img{display:block;max-width:100%} a{color:inherit;text-decoration:none} ul{list-
 .hnav{display:flex;align-items:center;gap:2px}
 .nl{color:rgba(255,255,255,.82);font-size:1rem;font-weight:600;padding:12px 13px;border-radius:4px;transition:color .2s;letter-spacing:.01em}
 .nl:hover{color:#fff}
-@media(max-width:900px){.nl{display:none}}
 .hctas{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .hctas .btn{padding:12px 18px;font-size:.92rem;gap:7px}
 .hctas .btn svg{width:15px;height:15px}
-@media(max-width:520px){.hctas .btn-outline{display:none}}
+/* Hamburger button */
+.ham-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;border-radius:6px;color:#fff;flex-shrink:0;transition:background .2s}
+.ham-btn:hover{background:rgba(255,255,255,.1)}
+.ham-btn svg{width:26px;height:26px;fill:#fff;display:block}
+/* Mobile menu drawer */
+.mob-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;background:rgba(0,0,0,0);transition:background .3s;pointer-events:none}
+.mob-menu.open{display:block;background:rgba(0,0,0,.55);pointer-events:all}
+.mob-drawer{position:absolute;top:0;right:0;width:min(320px,92vw);height:100%;background:var(--charcoal);transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 32px rgba(0,0,0,.4);display:flex;flex-direction:column;overflow-y:auto}
+.mob-menu.open .mob-drawer{transform:translateX(0)}
+.mob-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.mob-drawer-logo{font-family:var(--fh);font-size:1.15rem;font-weight:900;color:#fff}
+.mob-drawer-logo span{display:block;font-family:var(--fb);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.mob-close{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.7);padding:6px;border-radius:6px;transition:color .2s,background .2s}
+.mob-close:hover{color:#fff;background:rgba(255,255,255,.1)}
+.mob-close svg{width:22px;height:22px;fill:currentColor;display:block}
+.mob-nav{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.mob-nl{display:block;color:rgba(255,255,255,.8);font-size:1rem;font-weight:600;padding:13px 20px;transition:color .2s,background .2s;border-left:3px solid transparent}
+.mob-nl:hover{color:#fff;background:rgba(255,255,255,.05);border-left-color:var(--gold)}
+.mob-ctas{padding:20px;display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.mob-ctas .btn{justify-content:center;font-size:.95rem;padding:13px}
+/* Responsive breakpoints */
+@media(max-width:900px){.nl{display:none}}
+@media(max-width:640px){.hctas .btn-outline{display:none}}
+@media(max-width:480px){.hctas{display:none}.ham-btn{display:flex;align-items:center;justify-content:center}}
 /* HERO */
 #hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding-top:var(--hh)}
 .hbg{position:absolute;inset:0;background-image:url('https://images.thegreekdirectory.org/cdn-cgi/imagedelivery/rheV007PEt08HUYXNuJLnQ/80a363d0-42af-4a72-7aa9-20f27a292c00/public');background-size:cover;background-position:center;z-index:0}
@@ -264,6 +286,11 @@ img{display:block;max-width:100%} a{color:inherit;text-decoration:none} ul{list-
 .ctasub{color:rgba(255,255,255,.85);font-size:1.1rem;max-width:480px;margin:0 auto 36px}
 .ctabtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .ctabtns .btn{font-size:1.05rem;padding:15px 32px}
+/* TOOLTIP */
+.tip{position:relative;cursor:help}
+.tip::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--charcoal);color:rgba(255,255,255,.9);font-size:.78rem;font-weight:400;line-height:1.5;padding:10px 14px;border-radius:8px;width:260px;white-space:normal;text-align:center;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;pointer-events:none;border:1px solid rgba(255,255,255,.12);z-index:9000}
+.tip::before{content:'';position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--charcoal);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:9001}
+.tip:hover::after,.tip:hover::before{opacity:1;visibility:visible}
 /* FOOTER */
 footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32px}
 .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}
@@ -326,9 +353,50 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
         <a href="tel:+16309639161" class="btn btn-primary"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>Call Now</a>
         <a href="https://maps.google.com/?q=406+Maple+Ave+Downers+Grove+IL+60515" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Directions</a>
       </div>
+      <!-- Hamburger (shown when CTA buttons don't fit) -->
+      <button class="ham-btn" id="ham-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- MOBILE DRAWER MENU -->
+<div class="mob-menu" id="mob-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mob-drawer" id="mob-drawer">
+    <div class="mob-drawer-head">
+      <div class="mob-drawer-logo">Eagle Restaurant<span>Downers Grove, IL</span></div>
+      <button class="mob-close" id="mob-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+    <nav class="mob-nav" aria-label="Mobile navigation">
+      <a href="#about" class="mob-nl">About</a>
+      <a href="#menu" class="mob-nl">Menu</a>
+      <a href="#catering" class="mob-nl">Catering</a>
+      <a href="#offers" class="mob-nl">Special Offers</a>
+      <a href="#gallery" class="mob-nl">Gallery</a>
+      <a href="#reviews" class="mob-nl">Reviews</a>
+      <a href="#amenities" class="mob-nl">Amenities</a>
+      <a href="#location" class="mob-nl">Location &amp; Hours</a>
+      <a href="#faq" class="mob-nl">FAQ</a>
+    </nav>
+    <div class="mob-ctas">
+      <a href="https://orderonlinemenu.com/EagleRestaurant" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.9 18 9 18h12v-2H9.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.44 5H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Order Online
+      </a>
+      <a href="tel:+16309639161" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        (630) 963-9161
+      </a>
+      <a href="https://maps.google.com/?q=406+Maple+Ave+Downers+Grove+IL+60515" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dk">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Get Directions
+      </a>
+    </div>
+  </div>
+</div>
 <!-- HERO -->
 <section id="hero" aria-labelledby="hero-h">
   <div class="hbg" aria-hidden="true"></div>
@@ -860,6 +928,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
           <li><a href="#amenities">Amenities</a></li>
           <li><a href="#location">Location &amp; Hours</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://thegreekdirectory.org/listing/eagle-restaurant" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">View us on The Greek Directory!</a></li>
         </ul>
       </div>
       <div>
@@ -883,7 +952,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
     <div class="fbot">
       <div>&copy; 2025 Eagle Restaurant &middot; All rights reserved.</div>
       <div style="font-size:.82rem;color:rgba(255,255,255,.45);">
-        Powered by <a href="https://thegreekdirectory.org" target="_blank" style="color:var(--gold);font-weight:600;">The Greek Directory</a>
+        Powered by <a href="https://thegreekdirectory.org" target="_blank" style="color:var(--gold);font-weight:600;" class="tip" data-tip="The Greek Directory™ is a growing digital hub that connects people to all local Greek-owned businesses, parishes, schools, events, media, and resources.">The Greek Directory</a>
       </div>
     </div>
   </div>
@@ -892,6 +961,17 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.65);padding:52px 0 32p
 /* Header shrink */
 const hdr=document.getElementById('hdr');
 window.addEventListener('scroll',()=>hdr.classList.toggle('sc',scrollY>40),{passive:true});
+/* Hamburger menu */
+const hamBtn=document.getElementById('ham-btn');
+const mobMenu=document.getElementById('mob-menu');
+const mobClose=document.getElementById('mob-close');
+function openMob(){mobMenu.classList.add('open');hamBtn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+function closeMob(){mobMenu.classList.remove('open');hamBtn.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+hamBtn.addEventListener('click',openMob);
+mobClose.addEventListener('click',closeMob);
+mobMenu.addEventListener('click',e=>{if(e.target===mobMenu)closeMob()});
+document.querySelectorAll('.mob-nl').forEach(a=>a.addEventListener('click',()=>{closeMob()}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobMenu.classList.contains('open'))closeMob()});
 /* Intersection observer fade-in */
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
