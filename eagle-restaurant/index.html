@@ -842,30 +842,38 @@ document.getElementById('lbprev').addEventListener('click',()=>navLb(-1));
 document.getElementById('lbnext').addEventListener('click',()=>navLb(1));
 lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
 document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')navLb(-1);if(e.key==='ArrowRight')navLb(1)});
-/* Continuous carousel scroll — only moves the carousel container, never the page */
+/* Endless continuous carousel scroll */
 (function(){
   var configs=[
-    {sel:'#rgrid',speed:0.4},
-    {sel:'#amgrid',speed:0.4},
-    {sel:'#ggrid',speed:0.5},
+    {sel:'#rgrid',speed:0.5},
+    {sel:'#amgrid',speed:0.5},
+    {sel:'#ggrid',speed:0.7},
   ];
   configs.forEach(function(cfg){
     var el=document.querySelector(cfg.sel);
     if(!el)return;
-    var speed=cfg.speed;
+    /* Disable scroll-snap so programmatic scrollLeft works smoothly */
+    el.style.scrollSnapType='none';
+    /* Clone all original children and append — enables seamless looping */
+    Array.from(el.children).forEach(function(c){
+      var clone=c.cloneNode(true);
+      clone.setAttribute('aria-hidden','true');
+      el.appendChild(clone);
+    });
+    var pos=0;
     var paused=false;
     el.addEventListener('mouseenter',function(){paused=true});
     el.addEventListener('mouseleave',function(){paused=false});
-    el.addEventListener('touchstart',function(){paused=true},{passive:true});
-    el.addEventListener('touchend',function(){setTimeout(function(){paused=false},1500)},{passive:true});
+    el.addEventListener('touchstart',function(){pos=el.scrollLeft;paused=true},{passive:true});
+    el.addEventListener('touchend',function(){pos=el.scrollLeft;setTimeout(function(){paused=false},2000)},{passive:true});
     function tick(){
       var cs=getComputedStyle(el);
       if(!paused&&(cs.overflowX==='auto'||cs.overflowX==='scroll')){
-        el.scrollLeft+=speed;
-        /* Loop: when we reach the end, jump back to start */
-        if(el.scrollLeft>=el.scrollWidth-el.clientWidth-1){
-          el.scrollLeft=0;
-        }
+        pos+=cfg.speed;
+        /* Loop back at the halfway point (start of cloned content) */
+        var half=el.scrollWidth/2;
+        if(pos>=half)pos-=half;
+        el.scrollLeft=pos;
       }
       requestAnimationFrame(tick);
     }
